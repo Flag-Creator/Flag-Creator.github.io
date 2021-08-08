@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="controls">
+        <input type="number" id="count" min="2" max="50" placeholder="Split count" value="2">
+        <button id="split_x">Split Horizontally</button>
+        <button id="split_y">Split Vertically</button>
+        <button id="deselect">Deselect</button>
+    </section>
+
+    <section id="canvas" class="element">
+
+    </section>
+
+    <section class="controls">
+
+        <button id="usecolor1">Color 1</button>
+        <input id="color1" type="color" value="#FF0000" />
+
+        <button id="usecolor2">Color 2</button>
+        <input id="color2" type="color" value="#0000FF" />
+
+        <button id="usecolor3">Color 3</button>
+        <input id="color3" type="color" value="#FFFFFF" />
+    </section>
+
+    <section class="flexcenter">
+        <p>Screenshot to save</p>
+    </section>
+    
+</body>
+<script src="core.js" type="module"></script>
+</html>
