@@ -7,6 +7,7 @@ const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/scripts/core.js',
+  '/manifest.json',
   '/style.css'
 ];
 

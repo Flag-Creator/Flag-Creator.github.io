@@ -1,7 +1,7 @@
 {
     "name": "Flag Creator",
     "short_name": "Flag Creator",
-    "start_url": "/",
+    "start_url": "/index.html",
     "scope": "/",
     "display": "standalone",
     "background_color": "#fff",

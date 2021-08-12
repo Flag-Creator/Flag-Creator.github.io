@@ -1,3 +1,7 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+}
+
 function editSelectorCSS (selector, style) {  
     if(document.querySelector(selector + "style")) {
         document.querySelector(selector + "style").innerHTML = style;
