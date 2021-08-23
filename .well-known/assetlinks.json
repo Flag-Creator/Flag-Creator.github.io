@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "dev.bloomflare.flagcreator",
+                     "sha256_cert_fingerprints": ["2B:EE:46:EE:35:7D:FB:76:B2:A9:AE:0B:0E:88:A4:4F:E3:A1:C6:0D:7B:A5:C6:88:00:C1:C2:DD:C6:C3:5C:33"] }
+      }
+]
