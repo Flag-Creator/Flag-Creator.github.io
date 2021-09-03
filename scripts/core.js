@@ -19,11 +19,13 @@ function editSelectorCSS (selector, style) {
 
 let canvas = document.getElementById("canvas");
 let controls = {
+    dialog: document.getElementById("dialog"),
     count: document.getElementById("count"),
     split_x: document.getElementById("split_x"),
     split_y: document.getElementById("split_y"),
     deselect: document.getElementById("deselect"),
     showborder: document.getElementById("showborder"),
+    symbolbtn: document.getElementById("symbolbtn"),
     color1: document.getElementById("color1"),
     usecolor1: document.getElementById("usecolor1"),
     color2: document.getElementById("color2"),
@@ -31,6 +33,17 @@ let controls = {
     color3: document.getElementById("color3"),
     usecolor3: document.getElementById("usecolor3")
 }
+
+if (! controls.dialog.showModal) {
+    dialogPolyfill.registerDialog(dialog);
+}
+controls.symbolbtn.addEventListener('click', function() {
+    controls.dialog.showModal();
+});
+controls.dialog.querySelector('.close').addEventListener('click', function() {
+    controls.dialog.close();
+});
+
 
 let jsoncanvas = [];
 
@@ -44,6 +57,12 @@ function removeColors(e) {
     e.classList.remove("color1");
     e.classList.remove("color2");
     e.classList.remove("color3");
+}
+
+function deselect (e) {
+    e.classList.remove('selected');
+    e.classList.remove('selected_t1');
+    e.classList.remove('selected_t2');
 }
 
 function deselectAll () {
@@ -104,20 +123,28 @@ controls.deselect.addEventListener("click", e=> {
 controls.showborder.addEventListener("click", e=> {
     let elements = document.getElementsByClassName("element");
     for(let element of elements) {
+        element.innerText = "test";
         element.classList.add("selected");
     }
 });
 
-async function showBorders(elementArray, time) {
-    [...elementArray].forEach(element => {
-        element.classList.add("selected");
-    });
+async function showBorders(classname, time) {
 
-    /*setTimeout(() => {
-        [...elementArray].forEach(element => {
-            element.classList.remove("selected");
-        });
-    }, time);*/
+    let elements = document.getElementsByClassName(classname);
+
+
+    [...elements].forEach(element => {        
+        element.classList.add("selected");
+        console.log([...element.classList.values()]);
+    })
+
+    
+    await setTimeout(() => {
+        [...elements].forEach(element => {        
+            deselect(element);
+        })
+    }, 1000);
+    
 }
 
 controls.split_x.addEventListener("click", e=> {
@@ -128,16 +155,18 @@ controls.split_x.addEventListener("click", e=> {
     selected.classList.add("flex_horizontal")
 
     let count = controls.count.value;
+    let actionid = Date.now();
 
     for(let i = 0; i < count; i++) {
         let newelement = document.createElement("div");
         newelement.classList.add("element");
-        selected.appendChild(newelement, 500);
+        newelement.classList.add(actionid);
+        selected.appendChild(newelement);
     }
 
-    showBorders(selected.childNodes)
-
     deselectAll();
+
+    showBorders(actionid);
 })
 
 controls.split_y.addEventListener("click", e=> {
@@ -148,16 +177,18 @@ controls.split_y.addEventListener("click", e=> {
     selected.classList.add("flex_vertical");
 
     let count = controls.count.value;
+    let actionid = Date.now();
 
     for(let i = 0; i < count; i++) {
         let newelement = document.createElement("div");
         newelement.classList.add("element");
-        selected.appendChild(newelement, 500);
+        newelement.classList.add(actionid);
+        selected.appendChild(newelement);
     }
 
-    showBorders(selected.childNodes)
-
     deselectAll();
+
+    showBorders(actionid);
 });
 
 canvas.addEventListener("click", function(e){
@@ -175,4 +206,4 @@ setInterval(function(){
     });
 
     t = (t == 1) ? 2 : 1;
-}, 500);
+}, 200);

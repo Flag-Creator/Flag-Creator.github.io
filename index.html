@@ -7,7 +7,7 @@
     <title>Flag Creator</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js" type="module"></script>
     <link rel="stylesheet" href="/style.css">
     <link rel="manifest" href="/manifest.json">
     <script src="/scripts/core.js" type="module"></script>
@@ -24,9 +24,9 @@ mdl-layout--fixed-tabs">
 </div>
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
-<a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
-<a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
+<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Workspace 1</a>
+<a href="#fixed-tab-2" class="mdl-layout__tab">Workspace 2</a>
+<a href="#fixed-tab-3" class="mdl-layout__tab">Workspace 3</a>
 </div>
 </header>
 <main class="mdl-layout__content">
@@ -50,7 +50,7 @@ mdl-layout--fixed-tabs">
         <button id="deselect" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
             <i class="material-icons">border_clear</i>
         </button>
-        <button id="iconmenu" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="symbolbtn" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
             <i class="material-icons">auto_awesome</i>
         </button>
     </section>
@@ -85,6 +85,17 @@ mdl-layout--fixed-tabs">
 </main>
 </div>
 
+<dialog class="mdl-dialog" id="dialog">
+    <h4 class="mdl-dialog__title">Insert a symbol</h4>
+    <div class="mdl-dialog__content">
+        <p>
+            This feature is comming soon!
+        </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button close">Okay</button>
+    </div>
+  </dialog>
     
 </body>
 </html>
