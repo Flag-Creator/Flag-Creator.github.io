@@ -1,4 +1,4 @@
-const PRECACHE = 'FlagCreator_0.0.1';
+const PRECACHE = 'FlagCreator_0.0.2';
 const RUNTIME = PRECACHE;
 
 

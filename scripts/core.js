@@ -23,6 +23,7 @@ let controls = {
     split_x: document.getElementById("split_x"),
     split_y: document.getElementById("split_y"),
     deselect: document.getElementById("deselect"),
+    showborder: document.getElementById("showborder"),
     color1: document.getElementById("color1"),
     usecolor1: document.getElementById("usecolor1"),
     color2: document.getElementById("color2"),
@@ -30,6 +31,8 @@ let controls = {
     color3: document.getElementById("color3"),
     usecolor3: document.getElementById("usecolor3")
 }
+
+let jsoncanvas = [];
 
 function updateColors() {
     editSelectorCSS('.color1', `{background-color:${controls.color1.value}}`);
@@ -98,8 +101,28 @@ controls.deselect.addEventListener("click", e=> {
     deselectAll();
 })
 
+controls.showborder.addEventListener("click", e=> {
+    let elements = document.getElementsByClassName("element");
+    for(let element of elements) {
+        element.classList.add("selected");
+    }
+});
+
+async function showBorders(elementArray, time) {
+    [...elementArray].forEach(element => {
+        element.classList.add("selected");
+    });
+
+    /*setTimeout(() => {
+        [...elementArray].forEach(element => {
+            element.classList.remove("selected");
+        });
+    }, time);*/
+}
+
 controls.split_x.addEventListener("click", e=> {
     let selected = document.getElementsByClassName("selected")[0];
+    selected.innerText = null;
     selected.classList.remove("selected");
 
     selected.classList.add("flex_horizontal")
@@ -108,31 +131,34 @@ controls.split_x.addEventListener("click", e=> {
 
     for(let i = 0; i < count; i++) {
         let newelement = document.createElement("div");
-        newelement.classList.add("element")
-        selected.appendChild(newelement);
+        newelement.classList.add("element");
+        selected.appendChild(newelement, 500);
     }
+
+    showBorders(selected.childNodes)
 
     deselectAll();
 })
 
 controls.split_y.addEventListener("click", e=> {
     let selected = document.getElementsByClassName("selected")[0];
+    selected.innerText = null;
     selected.classList.remove("selected");
 
-    selected.classList.add("flex_vertical")
+    selected.classList.add("flex_vertical");
 
     let count = controls.count.value;
 
     for(let i = 0; i < count; i++) {
         let newelement = document.createElement("div");
-        newelement.classList.add("element")
-        selected.appendChild(newelement);
+        newelement.classList.add("element");
+        selected.appendChild(newelement, 500);
     }
 
+    showBorders(selected.childNodes)
+
     deselectAll();
-})
-
-
+});
 
 canvas.addEventListener("click", function(e){
     deselectAll();
