@@ -151,7 +151,6 @@ async function showBorders(classname, time) {
 
     [...elements].forEach(element => {        
         element.classList.add("selected");
-        console.log([...element.classList.values()]);
     })
 
     
