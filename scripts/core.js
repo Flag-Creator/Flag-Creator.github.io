@@ -23,7 +23,8 @@ function editSelectorCSS (selector, style) {
 
 let canvas = document.getElementById("canvas");
 let controls = {
-    dialog: document.getElementById("dialog"),
+    dialog_symbols: document.getElementById("dialog_symbols"),
+    dialog_export: document.getElementById("dialog_export"),
     count: document.getElementById("count"),
     split_x: document.getElementById("split_x"),
     split_y: document.getElementById("split_y"),
@@ -39,15 +40,19 @@ let controls = {
     usecolor3: document.getElementById("usecolor3")
 }
 
-if (! controls.dialog.showModal) {
-    dialogPolyfill.registerDialog(dialog);
+if (! controls.dialog_symbols.showModal) {
+    dialogPolyfill.registerDialog(dialog_symbols);
 }
+if (! controls.dialog_export.showModal) {
+    dialogPolyfill.registerDialog(dialog_export);
+}
+
 controls.symbolbtn.addEventListener('click', function() {
-    controls.dialog.showModal();
+    controls.dialog_symbols.showModal();
 });
 
 controls.export.addEventListener('click', function() {
-    //controls.dialog.showModal();
+    controls.dialog_export.showModal();
     deselectAll();
     html2canvas(document.querySelector("#canvas")).then(canvas => {
         //document.body.appendChild(canvas)
