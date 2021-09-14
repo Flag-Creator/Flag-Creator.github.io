@@ -1,4 +1,4 @@
-const PRECACHE = 'FlagCreator_0.0.2';
+const PRECACHE = 'FlagCreator_1.0.3';
 const RUNTIME = PRECACHE;
 
 
@@ -7,8 +7,12 @@ const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/scripts/core.js',
+  '/scripts/html2canvas.js',
   '/manifest.json',
-  '/style.css'
+  '/style.css',
+  'https://code.getmdl.io/1.3.0/material.min.js',
+  'https://code.getmdl.io/1.3.0/material.indigo-pink.min.css',
+  'https://fonts.googleapis.com/icon?family=Material+Icons'
 ];
 
 // The install handler takes care of precaching the resources we always need.

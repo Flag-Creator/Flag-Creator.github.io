@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="manifest" href="/manifest.json">
     <script src="/scripts/core.js" type="module"></script>
-
 </head>
 <body>
     <!-- Simple header with fixed tabs. -->
@@ -25,18 +24,20 @@ mdl-layout--fixed-tabs">
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
 <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Workspace 1</a>
+<!--
 <a href="#fixed-tab-2" class="mdl-layout__tab">Workspace 2</a>
 <a href="#fixed-tab-3" class="mdl-layout__tab">Workspace 3</a>
+-->
 </div>
 </header>
 <main class="mdl-layout__content">
 <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
 <div class="page-content">
     <section class="controls">
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input id="count" class="mdl-textfield__input" value="3" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
             <label class="mdl-textfield__label" for="count">Amount of new parts</label>
-            <span class="mdl-textfield__error">Amount of new parts</span>
+            <span class="mdl-textfield__error">Insert a number</span>
         </div>
         <button id="split_x" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
             <i class="material-icons">border_horizontal</i>
@@ -53,49 +54,54 @@ mdl-layout--fixed-tabs">
         <button id="symbolbtn" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
             <i class="material-icons">auto_awesome</i>
         </button>
+        <button id="export" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+            <i class="material-icons">save</i>
+        </button>
     </section>
 
-    <section id="canvas" class="element">
+    <section id="canvas" class="element selected" data-actionid="1" data-depth="0" data-parent="">
 
     </section>
 
     <section class="controls">
 
-        <button id="usecolor1">Color 1</button>
+        <button id="usecolor1">Use color 1</button>
         <input id="color1" type="color" value="#FF0000" />
 
-        <button id="usecolor2">Color 2</button>
+        <button id="usecolor2">Use color 2</button>
         <input id="color2" type="color" value="#0000FF" />
 
-        <button id="usecolor3">Color 3</button>
+        <button id="usecolor3">Use color 3</button>
         <input id="color3" type="color" value="#FFFFFF" />
     </section>
 
     <section class="flexcenter">
-        <p>Screenshot to save</p>
+        <p>Split the canvas into smaller pieces and color them</p>
     </section>
 </div>
 </section>
+<!--
 <section class="mdl-layout__tab-panel" id="fixed-tab-2">
 <div class="page-content"><p>Comming soon, the app is still in development!</p></div>
 </section>
 <section class="mdl-layout__tab-panel" id="fixed-tab-3">
 <div class="page-content"><p>Comming soon, the app is still in development!</p></div>
 </section>
+-->
 </main>
 </div>
 
 <dialog class="mdl-dialog" id="dialog">
-    <h4 class="mdl-dialog__title">Insert a symbol</h4>
+    <h4 class="mdl-dialog__title">Comming soon</h4>
     <div class="mdl-dialog__content">
         <p>
-            This feature is comming soon!
+            This feature will allow you to insert symbols such as stars into your flag.
         </p>
     </div>
     <div class="mdl-dialog__actions">
       <button type="button" class="mdl-button close">Okay</button>
     </div>
-  </dialog>
+</dialog>
     
 </body>
 </html>

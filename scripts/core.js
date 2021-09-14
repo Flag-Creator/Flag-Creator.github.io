@@ -4,6 +4,9 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+import "./html2canvas.js";
+
+
 function editSelectorCSS (selector, style) {  
     if(document.querySelector(selector + "style")) {
         document.querySelector(selector + "style").innerHTML = style;
@@ -17,6 +20,7 @@ function editSelectorCSS (selector, style) {
 
 }
 
+
 let canvas = document.getElementById("canvas");
 let controls = {
     dialog: document.getElementById("dialog"),
@@ -26,6 +30,7 @@ let controls = {
     deselect: document.getElementById("deselect"),
     showborder: document.getElementById("showborder"),
     symbolbtn: document.getElementById("symbolbtn"),
+    export: document.getElementById("export"),
     color1: document.getElementById("color1"),
     usecolor1: document.getElementById("usecolor1"),
     color2: document.getElementById("color2"),
@@ -40,12 +45,24 @@ if (! controls.dialog.showModal) {
 controls.symbolbtn.addEventListener('click', function() {
     controls.dialog.showModal();
 });
+
+controls.export.addEventListener('click', function() {
+    //controls.dialog.showModal();
+    deselectAll();
+    html2canvas(document.querySelector("#canvas")).then(canvas => {
+        //document.body.appendChild(canvas)
+        let link = document.createElement('a');
+        link.download = `flagcreator_${Date.now()}.png`;
+        link.href = canvas.toDataURL()
+        link.click();
+    });
+});
+
 controls.dialog.querySelector('.close').addEventListener('click', function() {
     controls.dialog.close();
 });
 
 
-let jsoncanvas = [];
 
 function updateColors() {
     editSelectorCSS('.color1', `{background-color:${controls.color1.value}}`);
@@ -123,7 +140,6 @@ controls.deselect.addEventListener("click", e=> {
 controls.showborder.addEventListener("click", e=> {
     let elements = document.getElementsByClassName("element");
     for(let element of elements) {
-        element.innerText = "test";
         element.classList.add("selected");
     }
 });
@@ -148,21 +164,28 @@ async function showBorders(classname, time) {
 }
 
 controls.split_x.addEventListener("click", e=> {
-    let selected = document.getElementsByClassName("selected")[0];
-    selected.innerText = null;
-    selected.classList.remove("selected");
-
-    selected.classList.add("flex_horizontal")
-
-    let count = controls.count.value;
+    let selected = document.getElementsByClassName("selected");
     let actionid = Date.now();
 
-    for(let i = 0; i < count; i++) {
-        let newelement = document.createElement("div");
-        newelement.classList.add("element");
-        newelement.classList.add(actionid);
-        selected.appendChild(newelement);
-    }
+
+    [...selected].forEach(element => {
+        let depth = element.dataset.depth;
+        let parentid = element.dataset.parentid;
+        element.innerText = null;
+        element.classList.remove("selected");
+        element.classList.add("flex_horizontal")
+        
+        let count = controls.count.value;
+    
+        for(let i = 0; i < count; i++) {
+            let newelement = document.createElement("div");
+            newelement.classList.add("element");
+            newelement.classList.add(actionid);
+
+            element.appendChild(newelement);
+        }
+    })
+
 
     deselectAll();
 
@@ -170,21 +193,29 @@ controls.split_x.addEventListener("click", e=> {
 })
 
 controls.split_y.addEventListener("click", e=> {
-    let selected = document.getElementsByClassName("selected")[0];
-    selected.innerText = null;
-    selected.classList.remove("selected");
-
-    selected.classList.add("flex_vertical");
-
-    let count = controls.count.value;
+    let selected = document.getElementsByClassName("selected");
     let actionid = Date.now();
+    
 
-    for(let i = 0; i < count; i++) {
-        let newelement = document.createElement("div");
-        newelement.classList.add("element");
-        newelement.classList.add(actionid);
-        selected.appendChild(newelement);
-    }
+    [...selected].forEach(element => {
+        let depth = element.dataset.depth;
+        let parentid = element.dataset.parentid;
+        element.innerText = null;
+        element.classList.remove("selected");
+        element.classList.add("flex_vertical");
+        
+        let count = controls.count.value;
+    
+        for(let i = 0; i < count; i++) {
+            let newelement = document.createElement("div");
+            newelement.classList.add("element");
+            newelement.classList.add(actionid);
+
+            element.appendChild(newelement);
+
+        }
+    
+    })
 
     deselectAll();
 
