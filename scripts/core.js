@@ -63,7 +63,7 @@ controls.export.addEventListener('click', function() {
     });
 });
 
-controls.dialog.querySelector('.close').addEventListener('click', function() {
+controls.dialog_symbols.querySelector('.close').addEventListener('click', function() {
     controls.dialog.close();
 });
 
