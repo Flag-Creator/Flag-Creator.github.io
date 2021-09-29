@@ -37,8 +37,26 @@ let controls = {
     color2: document.getElementById("color2"),
     usecolor2: document.getElementById("usecolor2"),
     color3: document.getElementById("color3"),
-    usecolor3: document.getElementById("usecolor3")
+    usecolor3: document.getElementById("usecolor3"),
+    buy_symbols: document.getElementById("buy_symbols")
 }
+
+buy_symbols.addEventListener("click", async e => {
+    alert("coming soon")
+    /*
+    if ('getDigitalGoodsService' in window) {
+        // Digital Goods API is supported!
+        const service =
+            await window.getDigitalGoodsService('https://play.google.com/billing');
+        if (service) {
+          // Google Play Billing is supported!
+          console.log("Supported")
+        } else {
+            console.log("No")
+        }
+    }
+    */
+})
 
 if (! controls.dialog_symbols.showModal) {
     dialogPolyfill.registerDialog(dialog_symbols);
@@ -64,7 +82,7 @@ controls.export.addEventListener('click', function() {
 });
 
 controls.dialog_symbols.querySelector('.close').addEventListener('click', function() {
-    controls.dialog.close();
+    controls.dialog_symbols.close();
 });
 
 

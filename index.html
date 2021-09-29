@@ -17,13 +17,9 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
 mdl-layout--fixed-tabs">
 <header class="mdl-layout__header">
-<div class="mdl-layout__header-row">
-<!-- Title -->
-<span class="mdl-layout-title">Flag Creator</span>
-</div>
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Workspace 1</a>
+<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Flag Creator   </a>
 <!--
 <a href="#fixed-tab-2" class="mdl-layout__tab">Workspace 2</a>
 <a href="#fixed-tab-3" class="mdl-layout__tab">Workspace 3</a>
@@ -39,22 +35,22 @@ mdl-layout--fixed-tabs">
             <label class="mdl-textfield__label" for="count">Amount of new parts</label>
             <span class="mdl-textfield__error">Insert a number</span>
         </div>
-        <button id="split_x" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="split_x" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             <i class="material-icons">border_horizontal</i>
         </button>
-        <button id="split_y" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="split_y" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             <i class="material-icons">border_vertical</i>
         </button>
-        <button id="showborder" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="showborder" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             <i class="material-icons">border_all</i>
         </button>
-        <button id="deselect" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="deselect" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             <i class="material-icons">border_clear</i>
         </button>
-        <button id="symbolbtn" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="symbolbtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             <i class="material-icons">auto_awesome</i>
         </button>
-        <button id="export" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+        <button id="export" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             <i class="material-icons">save</i>
         </button>
     </section>
@@ -92,14 +88,15 @@ mdl-layout--fixed-tabs">
 </div>
 
 <dialog class="mdl-dialog" id="dialog_symbols">
-    <h4 class="mdl-dialog__title">Comming soon</h4>
+    <h4 class="mdl-dialog__title">Symbols</h4>
     <div class="mdl-dialog__content">
         <p>
-            This feature will allow you to insert symbols such as stars into your flag.
+            Insert symbols such as stars or leaves to your flags!
         </p>
     </div>
     <div class="mdl-dialog__actions">
-      <button type="button" class="mdl-button close">Okay</button>
+        <button id="buy_symbols" type="button" class="mdl-button">Buy</button>
+        <button type="button" class="mdl-button close">No</button>
     </div>
 </dialog>
 

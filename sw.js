@@ -1,3 +1,4 @@
+/*
 const PRECACHE = 'FlagCreator_1.0.5';
 const RUNTIME = PRECACHE;
 
@@ -62,3 +63,5 @@ self.addEventListener('fetch', event => {
     );
   }
 });
+
+*/
