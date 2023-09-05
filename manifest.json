@@ -1,30 +1,34 @@
 {
-    "name": "Flag Creator",
-    "short_name": "Flag Creator",
-    "start_url": "/index.html",
-    "scope": "/",
-    "display": "standalone",
-    "background_color": "#fff",
-    "description": "Design cool flags",
-    "icons": [{
+  "name": "Flag Creator",
+  "short_name": "Flag Creator",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Design cool flags",
+  "icons": [
+    {
       "src": "images/flagcreator_icon_1.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },{
+    },
+    {
       "src": "images/flagcreator_maskable_1.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-    ,{
+    },
+    {
       "src": "images/flagcreator_monochrome_1.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "monochrome"
     }
   ],
-    "theme_color": "white",
-    "orientation": "any",
-    "iarc_rating_id": "330e6657-49e7-42af-b62d-12b95a4b92cb"
+  "theme_color": "#00768b",
+  "orientation": "portrait",
+  "iarc_rating_id": "330e6657-49e7-42af-b62d-12b95a4b92cb",
+  "lang": "en",
+  "prefer_related_applications": false
 }
