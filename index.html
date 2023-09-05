@@ -16,59 +16,76 @@
     <!-- Simple header with fixed tabs. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
 mdl-layout--fixed-tabs">
-<header class="mdl-layout__header">
-<!-- Tabs -->
-<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Flag Creator   </a>
-<!--
-<a href="#fixed-tab-2" class="mdl-layout__tab">Workspace 2</a>
-<a href="#fixed-tab-3" class="mdl-layout__tab">Workspace 3</a>
--->
-</div>
-</header>
+
+
 <main class="mdl-layout__content">
 <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
 <div class="page-content">
     <section class="controls">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input id="count" class="mdl-textfield__input" value="3" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
-            <label class="mdl-textfield__label" for="count">Amount of new parts</label>
-            <span class="mdl-textfield__error">Insert a number</span>
+        <div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 50px;">
+                <input id="count" class="mdl-textfield__input" value="3" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+                <label class="mdl-textfield__label" for="count">Split into:</label>
+                <span class="mdl-textfield__error">Insert a number</span>
+            </div>
+
+            <button id="split_x" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons">border_horizontal</i>
+            </button>
+            <button id="split_y" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons">border_vertical</i>
+            </button>
+    
         </div>
-        <button id="split_x" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            <i class="material-icons">border_horizontal</i>
-        </button>
-        <button id="split_y" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            <i class="material-icons">border_vertical</i>
-        </button>
-        <button id="showborder" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            <i class="material-icons">border_all</i>
-        </button>
-        <button id="deselect" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            <i class="material-icons">border_clear</i>
-        </button>
-        <button id="symbolbtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            <i class="material-icons">auto_awesome</i>
-        </button>
-        <button id="export" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            <i class="material-icons">save</i>
-        </button>
+        <div>
+            <button id="showborder" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons">border_all</i>
+            </button>
+            <button id="deselect" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons">border_clear</i>
+            </button>
+
+            <button id="export" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons">save</i>
+            </button>
+    
+            <button style="background-color: gold;" id="symbolbtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                <i class="material-icons" style="color: red;">auto_awesome</i>
+            </button>
+        </div>
+    
+        
     </section>
 
     <section id="canvas" class="element selected" data-actionid="1" data-depth="0" data-parent="">
 
     </section>
 
-    <section class="controls">
+    <section class="controls colorcontrols">
 
-        <button id="usecolor1">Use color 1</button>
-        <input id="color1" type="color" value="#FF0000" />
+        <div>
+            <div>
+                <input id="color1" type="color" value="#FF0000" />
+                <button id="usecolor1">Use color</button>
+            </div>
 
-        <button id="usecolor2">Use color 2</button>
-        <input id="color2" type="color" value="#0000FF" />
 
-        <button id="usecolor3">Use color 3</button>
-        <input id="color3" type="color" value="#FFFFFF" />
+            <div>
+                <input id="color2" type="color" value="#0000FF" />
+                <button id="usecolor2">Use color</button>
+            </div>
+
+            <div>
+                <input id="color3" type="color" value="#FFFFFF" />
+                <button id="usecolor3">Use color</button>
+            </div>
+
+
+            <div>
+                <input id="color4" type="color" value="#FFFF00" />
+                <button id="usecolor4">Use color</button>
+            </div>
+        </div>
     </section>
 
     <section class="flexcenter">
@@ -76,27 +93,22 @@ mdl-layout--fixed-tabs">
     </section>
 </div>
 </section>
-<!--
-<section class="mdl-layout__tab-panel" id="fixed-tab-2">
-<div class="page-content"><p>Comming soon, the app is still in development!</p></div>
-</section>
-<section class="mdl-layout__tab-panel" id="fixed-tab-3">
-<div class="page-content"><p>Comming soon, the app is still in development!</p></div>
-</section>
--->
+
 </main>
 </div>
 
 <dialog class="mdl-dialog" id="dialog_symbols">
-    <h4 class="mdl-dialog__title">Symbols</h4>
+    <h4 class="mdl-dialog__title">New version released!</h4>
     <div class="mdl-dialog__content">
-        <p>
-            Insert symbols such as stars or leaves to your flags!
-        </p>
+        <ul>
+            <li>Easier to use</li>
+            <li>30+ Flag designs</li>
+            <li>You'll like it more!</li>
+        </ul>
     </div>
     <div class="mdl-dialog__actions">
-        <button id="buy_symbols" type="button" class="mdl-button">Buy</button>
-        <button type="button" class="mdl-button close">No</button>
+        <a id="buy_symbols" type="button" style="background-color: lightskyblue;" class="mdl-button close" href="https://play.google.com/store/apps/details?id=cx.oli.flagcreator" target="_blank">TRY IT</a>
+        <button type="button" class="mdl-button" id="close_ad">NO</button>
     </div>
 </dialog>
 
@@ -108,7 +120,7 @@ mdl-layout--fixed-tabs">
         </p>
     </div>
     <div class="mdl-dialog__actions">
-      <button type="button" class="mdl-button close">Okay</button>
+      <button type="button" class="mdl-button close">Close</button>
     </div>
 </dialog>
     

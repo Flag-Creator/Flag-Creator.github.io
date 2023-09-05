@@ -15,6 +15,23 @@ html {
     justify-content: center;
 }
 
+#fixed-tab-1 {
+    height: 100%;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -29,9 +46,16 @@ body {
 }
 
 #canvas {
-    margin: 0 auto;
+    margin: 2rem auto;
     width: 90vw;
-    height: 55vw;
+    height: 50vw;
+    max-height: 50vh;
+    background-color: white;
+}
+
+input[type=color] {
+    height: 40px;
+    padding: 0.3rem;
 }
 
 button, input {
@@ -39,22 +63,39 @@ button, input {
     height: auto;
 }
 
-input[type="color"] {
-    padding: 0.5rem;
-}
-
-button:not(:last-child), input:not(:last-child) {
-    margin-right: 1rem;
-}
 
 .controls {
     display: flex;
-    align-items: stretch;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.controls > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.controls.colorcontrols > div {
+    justify-content: center;
+}
+
+
+.controls.colorcontrols >div>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+    padding: 5px;
+    border: 2px solid gray;
 }
 
 section {
-    background-color: white; /* So it can be easily overwritten */
+    /*background-color: white;  So it can be easily overwritten */
 }
 
 .selected_t1 {

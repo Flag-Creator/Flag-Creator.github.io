@@ -11,7 +11,7 @@ function editSelectorCSS (selector, style) {
     if(document.querySelector(selector + "style")) {
         document.querySelector(selector + "style").innerHTML = style;
     } else {
-        var el= document.createElement('style');
+        const el = document.createElement('style');
         el.type = 'text/css';
         el.id = selector + "style"
         el.appendChild(document.createTextNode(selector + style));
@@ -21,10 +21,12 @@ function editSelectorCSS (selector, style) {
 }
 
 
-let canvas = document.getElementById("canvas");
-let controls = {
+const canvas = document.getElementById("canvas");
+const controls = {
     dialog_symbols: document.getElementById("dialog_symbols"),
     dialog_export: document.getElementById("dialog_export"),
+    close_ad: document.getElementById("close_ad"),
+
     count: document.getElementById("count"),
     split_x: document.getElementById("split_x"),
     split_y: document.getElementById("split_y"),
@@ -32,31 +34,18 @@ let controls = {
     showborder: document.getElementById("showborder"),
     symbolbtn: document.getElementById("symbolbtn"),
     export: document.getElementById("export"),
+
     color1: document.getElementById("color1"),
     usecolor1: document.getElementById("usecolor1"),
     color2: document.getElementById("color2"),
     usecolor2: document.getElementById("usecolor2"),
     color3: document.getElementById("color3"),
     usecolor3: document.getElementById("usecolor3"),
+    color4: document.getElementById("color4"),
+    usecolor4: document.getElementById("usecolor4"),
     buy_symbols: document.getElementById("buy_symbols")
 }
 
-buy_symbols.addEventListener("click", async e => {
-    alert("coming soon")
-    /*
-    if ('getDigitalGoodsService' in window) {
-        // Digital Goods API is supported!
-        const service =
-            await window.getDigitalGoodsService('https://play.google.com/billing');
-        if (service) {
-          // Google Play Billing is supported!
-          console.log("Supported")
-        } else {
-            console.log("No")
-        }
-    }
-    */
-})
 
 if (! controls.dialog_symbols.showModal) {
     dialogPolyfill.registerDialog(dialog_symbols);
@@ -85,18 +74,29 @@ controls.dialog_symbols.querySelector('.close').addEventListener('click', functi
     controls.dialog_symbols.close();
 });
 
+controls.dialog_export.querySelector('.close').addEventListener('click', function() {
+    controls.dialog_export.close();
+});
+
+controls.close_ad.addEventListener('click', function() {
+    controls.dialog_symbols.close();
+});
 
 
 function updateColors() {
     editSelectorCSS('.color1', `{background-color:${controls.color1.value}}`);
     editSelectorCSS('.color2', `{background-color:${controls.color2.value}}`);
     editSelectorCSS('.color3', `{background-color:${controls.color3.value}}`);
+    editSelectorCSS('.color4', `{background-color:${controls.color4.value}}`);
+
 }
 
 function removeColors(e) {
     e.classList.remove("color1");
     e.classList.remove("color2");
     e.classList.remove("color3");
+    e.classList.remove("color4");
+
 }
 
 function deselect (e) {
@@ -131,6 +131,9 @@ controls.color3.addEventListener("change", e=> {
     updateColors();
 })
 
+controls.color4.addEventListener("change", e=> {
+    updateColors();
+})
 
 controls.usecolor1.addEventListener("click", e=> {
     document.querySelectorAll('.selected').forEach(e => {
@@ -155,6 +158,15 @@ controls.usecolor3.addEventListener("click", e=> {
         e.classList.add("color3");
     });    
 })
+
+controls.usecolor4.addEventListener("click", e=> {
+    document.querySelectorAll('.selected').forEach(e => {
+        updateColors();
+        removeColors(e)
+        e.classList.add("color4");
+    });    
+})
+
 
 controls.deselect.addEventListener("click", e=> {
     deselectAll();
