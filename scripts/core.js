@@ -23,18 +23,13 @@ function editSelectorCSS (selector, style) {
 
 const canvas = document.getElementById("canvas");
 const controls = {
-    dialog_symbols: document.getElementById("dialog_symbols"),
     dialog_export: document.getElementById("dialog_export"),
-    close_ad: document.getElementById("close_ad"),
-
     count: document.getElementById("count"),
     split_x: document.getElementById("split_x"),
     split_y: document.getElementById("split_y"),
     deselect: document.getElementById("deselect"),
     showborder: document.getElementById("showborder"),
-    symbolbtn: document.getElementById("symbolbtn"),
     export: document.getElementById("export"),
-
     color1: document.getElementById("color1"),
     usecolor1: document.getElementById("usecolor1"),
     color2: document.getElementById("color2"),
@@ -43,20 +38,11 @@ const controls = {
     usecolor3: document.getElementById("usecolor3"),
     color4: document.getElementById("color4"),
     usecolor4: document.getElementById("usecolor4"),
-    buy_symbols: document.getElementById("buy_symbols")
 }
 
-
-if (! controls.dialog_symbols.showModal) {
-    dialogPolyfill.registerDialog(dialog_symbols);
-}
 if (! controls.dialog_export.showModal) {
     dialogPolyfill.registerDialog(dialog_export);
 }
-
-controls.symbolbtn.addEventListener('click', function() {
-    controls.dialog_symbols.showModal();
-});
 
 controls.export.addEventListener('click', function() {
     controls.dialog_export.showModal();
@@ -70,16 +56,8 @@ controls.export.addEventListener('click', function() {
     });
 });
 
-controls.dialog_symbols.querySelector('.close').addEventListener('click', function() {
-    controls.dialog_symbols.close();
-});
-
 controls.dialog_export.querySelector('.close').addEventListener('click', function() {
     controls.dialog_export.close();
-});
-
-controls.close_ad.addEventListener('click', function() {
-    controls.dialog_symbols.close();
 });
 
 
